@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  alphabanktesttask:
+    build: .
+    image: alphabanktesttask:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - OPENEXCHANGERATES_URL=https://openexchangerates.org/api
+      - OPENEXCHANGERATES_APP_ID=
+      - GIPHY_URL=https://api.giphy.com/v1
+      - GIPHY_API_KEY=

@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.aiecel'
+version = '1'
+sourceCompatibility = '11'
+
+ext {
+	springVersion = "2.5.5"
+	feignVersion = "3.0.4"
+	lombokVersion = "1.18.22"
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-web:$springVersion"
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:$springVersion"
+	testImplementation "org.springframework.boot:spring-boot-starter-test:$springVersion"
+	implementation "org.springframework.boot:spring-boot-starter-validation:$springVersion"
+	implementation "org.springframework.cloud:spring-cloud-starter-openfeign:$feignVersion"
+	compileOnly "org.projectlombok:lombok:$lombokVersion"
+	annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
+
+test {
+	useJUnitPlatform()
+}
+
+jar {
+	enabled = false
+}
